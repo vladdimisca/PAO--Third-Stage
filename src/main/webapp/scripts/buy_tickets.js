@@ -42,14 +42,15 @@ window.onload = function () {
 
 function addTicket(buyButton) {
     let p = document.getElementById('message');
-    let d;
 
-    if(p === null) {
-        p = document.createElement('p');
-        p.setAttribute('id', 'message');
-
-        d = document.createElement('div');
+    if(p !== null) {
+        p.parentNode.removeChild(p);
     }
+
+    p = document.createElement('p');
+    p.setAttribute('id', 'message');
+
+    let d = document.createElement('div');
 
     p.style.display = 'block';
 
@@ -91,4 +92,5 @@ function addTicket(buyButton) {
             p.parentNode.removeChild(p);
         });
     }, 2000);
+
 }
