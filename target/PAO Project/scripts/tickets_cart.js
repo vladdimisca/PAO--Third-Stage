@@ -102,7 +102,7 @@ function getTickets() {
     xHttpGet.send();
 }
 
-function removeTicket(removeButton, ticketDiv, br) {
+function removeTicket(removeButton) {
     const xHttpDelete = new XMLHttpRequest();
 
     xHttpDelete.onreadystatechange = function () {

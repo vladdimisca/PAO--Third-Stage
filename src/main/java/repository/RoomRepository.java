@@ -94,4 +94,36 @@ public class RoomRepository {
 
         return room;
     }
+
+    public void removeRoomById(Integer id) {
+        String sqlDelete = "" +
+                "DELETE " +
+                "FROM " +
+                "ROOMS " +
+                "WHERE ID = ?";
+
+        Connection dbConnection = null;
+        PreparedStatement statement = null;
+
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            dbConnection = DriverManager.getConnection(url, username, password);
+            statement = dbConnection.prepareStatement(sqlDelete);
+
+            statement.setInt(1, id);
+            statement.execute();
+        } catch (SQLException | ClassNotFoundException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                assert dbConnection != null;
+                dbConnection.close();
+
+                assert statement != null;
+                statement.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+    }
 }

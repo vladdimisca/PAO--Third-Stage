@@ -1,4 +1,12 @@
 window.onload = function () {
+    let logged = JSON.parse(localStorage.getItem('logged'));
+
+    if(logged)
+        if(logged === 1) {
+            document.getElementById("loginLink").style.display = "none";
+            document.getElementById("registerLink").style.display = "none";
+        }
+
     let email = localStorage.getItem('email');
 
     let actualEmail = document.getElementById('email');

@@ -52,7 +52,6 @@ function addTicket(buyButton) {
 
     let d = document.createElement('div');
 
-
     p.style.display = 'block';
 
     let email = localStorage.getItem('email');
